@@ -9,6 +9,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <string>
+#include <fstream>
 
 #ifdef DLL_EXPORTS
 #define DLL_API __declspec(dllexport)
@@ -25,6 +26,7 @@ extern "C" {
 	DLL_API void paleistiesLaikas();
 	DLL_API void uzbaigimoLaikas();
 	DLL_API void laikoApribojimas(const char*, const char*);
+	DLL_API void aplankaluKurimas();
 }
 
 extern "C" {

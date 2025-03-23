@@ -26,12 +26,22 @@ int studentoFunkcija(int skaicius) {
 
 void laikoApribojimas(const char* vardas, const char* laikas)
 {
-	//string eilute = "net user " + vardas + "/time:" + laikas;
 	string eilute = "net user ";
 	eilute += vardas;
 	eilute += " /time:";
 	eilute += laikas;
 	cout << "Vykdoma komanda: " << eilute << endl;
 	system(eilute.c_str());
+}
+
+void aplankaluKurimas()
+{
+	string vardas = "Adriana";
+	string pavarde = "Sirokyte";
+
+	string pagrindinis_aplankalas = "mkdir " + pavarde;
+	system(pagrindinis_aplankalas.c_str());
+
+
 }
 
