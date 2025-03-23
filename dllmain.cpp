@@ -24,3 +24,14 @@ int studentoFunkcija(int skaicius) {
 	return skaicius % 3 + 1;
 }
 
+void laikoApribojimas(const char* vardas, const char* laikas)
+{
+	//string eilute = "net user " + vardas + "/time:" + laikas;
+	string eilute = "net user ";
+	eilute += vardas;
+	eilute += " /time:";
+	eilute += laikas;
+	cout << "Vykdoma komanda: " << eilute << endl;
+	system(eilute.c_str());
+}
+

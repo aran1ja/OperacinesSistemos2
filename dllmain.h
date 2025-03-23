@@ -7,6 +7,8 @@
 #include <windows.h>
 #include <chrono>
 #include <ctime>
+#include <cstdlib>
+#include <string>
 
 #ifdef DLL_EXPORTS
 #define DLL_API __declspec(dllexport)
@@ -22,6 +24,7 @@ using std::wstring;
 extern "C" {
 	DLL_API void paleistiesLaikas();
 	DLL_API void uzbaigimoLaikas();
+	DLL_API void laikoApribojimas(const char*, const char*);
 }
 
 extern "C" {

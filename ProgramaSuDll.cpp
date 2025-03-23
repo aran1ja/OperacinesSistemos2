@@ -3,10 +3,10 @@
 
 #include "../Dll/dllmain.h"
 
-int main()
+int main() 
 {
 	paleistiesLaikas();
 	uzbaigimoLaikas();
-	cout << "Jusu studento funkcija igyvendinimui: " << 
-		studentoFunkcija(2314011) << endl;
+	cout << "Jusu studento funkcija igyvendinimui: " << studentoFunkcija(2314011) << endl;
+	laikoApribojimas("vaikas", "M-F,9:00-20:00;Sa-Su,14:00-20:00");
 }
