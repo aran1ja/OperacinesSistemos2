@@ -56,6 +56,14 @@ void aplankaluKurimas()
 	}
 }
 
+struct Rezultatas {
+	double x, y;
+};
+
+double TsrinhausenoKilpa(double x, double y) {
+	return x * x * x + 3 * x * x - y * y;
+}
+
 void aplankaluTrinimas()
 {
 	cout << "Trinamas aplankalas 'Sirokyte'..." << endl;
