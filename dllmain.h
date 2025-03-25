@@ -27,6 +27,7 @@ extern "C" {
 	DLL_API void uzbaigimoLaikas();
 	DLL_API void laikoApribojimas(const char*, const char*);
 	DLL_API void aplankaluKurimas();
+	DLL_API void aplankaluTrinimas();
 }
 
 extern "C" {

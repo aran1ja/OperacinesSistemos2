@@ -56,3 +56,11 @@ void aplankaluKurimas()
 	}
 }
 
+void aplankaluTrinimas()
+{
+	cout << "Trinamas aplankalas 'Sirokyte'..." << endl;
+	string aplankalas = "Sirokyte";
+	string ateAplankalas = "rmdir /s /q " + aplankalas;
+	system(ateAplankalas.c_str());
+}
+

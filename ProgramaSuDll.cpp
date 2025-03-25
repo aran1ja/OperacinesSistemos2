@@ -10,4 +10,5 @@ int main()
 	cout << "Jusu studento funkcija igyvendinimui: " << studentoFunkcija(2314011) << endl;
 	laikoApribojimas("vaikas", "M-F,9:00-20:00;Sa-Su,14:00-20:00");
 	aplankaluKurimas();
+	aplankaluTrinimas();
 }
