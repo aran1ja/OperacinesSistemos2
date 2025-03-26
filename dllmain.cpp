@@ -73,9 +73,41 @@ vector<fs::path> sugeneruotiFailus(const fs::path& aplankaliukas) {
     return failai;
 }
 
-double TsrinhausenoKilpa(double x, double F) {
-    double y_kvadratu = pow(x, 3) + 3 * pow(x, 2) - F;
-    return y_kvadratu;
+void irasomiFailai(double F, const fs::path& aplankaliukas) {
+    vector<fs::path> failai = sugeneruotiFailus(aplankaliukas);
+    vector<ofstream> failiukai(failai.size());
+
+    double x0 = -1.0;
+    double xn = 11.0;
+    double dx = 0.000002314011;
+    double x = x0;
+    int esamasFailas = 0;
+
+    for (size_t i = 0; i < failai.size(); ++i) {
+        fs::create_directories(failai[i].parent_path());
+        failiukai[i].open(failai[i], ios::app);
+    }
+
+    while (x <= xn) {
+        double y_kvadratu = pow(x, 3) + 3 * pow(x, 2) - F;
+        if (y_kvadratu >= 0) {
+            double y = sqrt(y_kvadratu);
+            failiukai[esamasFailas] << x << " " << y << endl;
+            esamasFailas = (esamasFailas + 1) % failai.size();
+        }
+        x += dx;
+    }
+
+    for (auto& f : failiukai) {
+        f.close();
+    }
+}
+
+void skaiciavimas() {
+    fs::path aplankaliukas = "Sirokyte";
+    for (double F : {-2, -1, 0, 1, 2}) {
+        irasomiFailai(F, aplankaliukas);
+    }
 }
 
 void aplankaluTrinimas() {

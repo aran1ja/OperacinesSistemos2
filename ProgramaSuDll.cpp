@@ -13,7 +13,7 @@ int main()
 	cout << "Kuriami aplankalai..." << endl;
 	aplankaluKurimas();
 	cout << "Vykdomi skaiciavimai..." << endl;
-	//skaiciavimai
+	skaiciavimas();
 	cout << "Skaiciavimai baigti." << endl;
 	aplankaluTrinimas();
 	uzbaigimoLaikas();
