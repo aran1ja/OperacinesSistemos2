@@ -101,6 +101,21 @@ void irasomiFailai(double F, const fs::path& aplankaliukas) {
     for (auto& f : failiukai) {
         f.close();
     }
+
+vector<pair<double, double>> taskai;
+    for (const auto& f : failai) {
+        ifstream skaitome(f);
+        double x, y;
+        while (skaitome >> x >> y) 
+            taskai.emplace_back(x, y);
+        skaitome.close();
+        fs::remove(f); // pasalinamas is disko
+    }
+
+    ofstream irasome(aplankaliukas / (to_string((int)F) + "_F_sujungta.txt"));
+    for (auto& [x, y] : taskai)
+        irasome << x << " " << y << endl;
+    irasome.close();
 }
 
 void skaiciavimas() {
