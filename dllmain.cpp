@@ -24,7 +24,7 @@ void uzbaigimoLaikas() {
     cout << "Kodo uzbaigimas: " << put_time(&sauguLaika, "%Y-%m-%d %H:%M:%S") << endl;
 
     auto skirtumas = duration_cast<seconds>(pabaiga - pradzia).count();
-    cout << "Galutinai sugaistas laikas: " << (skirtumas/60) << "min." << (skirtumas%60) << "s." << endl;
+    cout << "Galutinai sugaistas laikas: " << (skirtumas/60) << "min " << (skirtumas%60) << "s" << endl;
 }
 
 int studentoFunkcija(int skaicius) {
@@ -58,6 +58,19 @@ void aplankaluKurimas() {
             system(trecias.c_str());
         }
     }
+}
+
+vector<fs::path> sugeneruotiFailus(const fs::path& aplankaliukas) {
+    vector<fs::path> failai;
+    for (int i = 1; i <= 3; i++) {
+        for (int j = 1; j <= 3; j++) {
+            fs::path kelias = aplankaliukas / ("Adriana" + to_string(i)) /
+                ("Adrianos" + to_string(i) + "Adriana" + to_string(j)) /
+                "duomenys.txt";
+            failai.push_back(kelias);
+        }
+    }
+    return failai;
 }
 
 double TsrinhausenoKilpa(double x, double F) {
