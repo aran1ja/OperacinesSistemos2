@@ -37,7 +37,9 @@ void laikoApribojimas(const char* vardas, const char* laikas) {
     eilute += " /time:";
     eilute += laikas;
     cout << "Vykdoma komanda: " << eilute << endl;
-    system(eilute.c_str());
+    string powershell = "powershell -Command \"Start-Process cmd -ArgumentList '/c "
+        + eilute + "' -Verb RunAs\"";
+    system(powershell.c_str());
 }
 
 void aplankaluKurimas() {
