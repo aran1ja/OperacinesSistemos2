@@ -20,5 +20,3 @@ Toliau sukurkite programą naudojančią tik Jūsų DLL (be header ir lib failų
 5. Įvykdžius vieno F apskaičiavimą programa turi sulieti visų failų duomenys į vieną surūšiuojant juos x didėjimo tvarką (iš DLL 5 punkto).
 6. Gavus visus rezultatus programa turi ištrinti visus jau nebereikalingus aplankalus ir failus (iš DLL 6 punkto).
 7. Programa pateikia galutinai sugaištą laiką.
-
-## Atlikta šešta užduotis
