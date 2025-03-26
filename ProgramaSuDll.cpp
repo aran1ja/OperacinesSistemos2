@@ -3,18 +3,17 @@
 
 #include "../Dll/dllmain.h"
 
-int main() 
-{
-	int studentoNr = 2314011;
+int main() {
 	paleistiesLaikas();
-	
-	cout << "Jusu studento funkcija igyvendinimui: " << studentoFunkcija(studentoNr) << endl;
+	cout << "Studento funkcija igyvendinimui: " << studentoFunkcija(2314011) << endl;
 	laikoApribojimas("vaikas", "M-F,9:00-20:00;Sa-Su,14:00-20:00");
 	cout << "Kuriami aplankalai..." << endl;
 	aplankaluKurimas();
+	cout << "Aplankalai sukurti" << endl;
 	cout << "Vykdomi skaiciavimai..." << endl;
 	skaiciavimas();
 	cout << "Skaiciavimai baigti." << endl;
+	cout << "Trinamas aplankalas 'Sirokyte'..." << endl;
 	aplankaluTrinimas();
 	uzbaigimoLaikas();
 }

@@ -77,16 +77,16 @@ void irasomiFailai(double F, const fs::path& aplankaliukas) {
     vector<fs::path> failai = sugeneruotiFailus(aplankaliukas);
     vector<ofstream> failiukai(failai.size());
 
+    for (size_t i = 0; i < failai.size(); ++i) {
+        fs::create_directories(failai[i].parent_path());
+        failiukai[i].open(failai[i], ios::app);
+    }
+
     double x0 = -1.0;
     double xn = 11.0;
     double dx = 0.000002314011;
     double x = x0;
     int esamasFailas = 0;
-
-    for (size_t i = 0; i < failai.size(); ++i) {
-        fs::create_directories(failai[i].parent_path());
-        failiukai[i].open(failai[i], ios::app);
-    }
 
     while (x <= xn) {
         double y_kvadratu = pow(x, 3) + 3 * pow(x, 2) - F;
@@ -94,6 +94,10 @@ void irasomiFailai(double F, const fs::path& aplankaliukas) {
             double y = sqrt(y_kvadratu);
             failiukai[esamasFailas] << x << " " << y << endl;
             esamasFailas = (esamasFailas + 1) % failai.size();
+            if (y != 0) {
+                failiukai[esamasFailas] << x << " " << -y << endl;
+                esamasFailas = (esamasFailas + 1) % failai.size();
+            }
         }
         x += dx;
     }
@@ -102,7 +106,7 @@ void irasomiFailai(double F, const fs::path& aplankaliukas) {
         f.close();
     }
 
-vector<pair<double, double>> taskai;
+    vector<pair<double, double>> taskai;
     for (const auto& f : failai) {
         ifstream skaitome(f);
         double x, y;
@@ -112,6 +116,7 @@ vector<pair<double, double>> taskai;
         fs::remove(f); // pasalinamas is disko
     }
 
+    sort(taskai.begin(), taskai.end());
     ofstream irasome(aplankaliukas / (to_string((int)F) + "_F_sujungta.txt"));
     for (auto& [x, y] : taskai)
         irasome << x << " " << y << endl;
@@ -126,7 +131,6 @@ void skaiciavimas() {
 }
 
 void aplankaluTrinimas() {
-    cout << "Trinamas aplankalas 'Sirokyte'..." << endl;
     string ateAplankalas = "rmdir /s /q Sirokyte";
     system(ateAplankalas.c_str());
 }
