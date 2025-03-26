@@ -5,11 +5,15 @@
 #include <iostream>
 #include <stdio.h>
 #include <windows.h>
+#include <filesystem>
 #include <chrono>
 #include <ctime>
 #include <cstdlib>
 #include <string>
 #include <fstream>
+#include <cmath>
+#include <vector>
+#include <algorithm>
 
 #ifdef DLL_EXPORTS
 #define DLL_API __declspec(dllexport)
@@ -28,9 +32,6 @@ extern "C" {
 	DLL_API void laikoApribojimas(const char*, const char*);
 	DLL_API void aplankaluKurimas();
 	DLL_API void aplankaluTrinimas();
-}
-
-extern "C" {
 	DLL_API int studentoFunkcija(int);
 }
 

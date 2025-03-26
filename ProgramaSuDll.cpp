@@ -5,10 +5,16 @@
 
 int main() 
 {
+	int studentoNr = 2314011;
 	paleistiesLaikas();
-	uzbaigimoLaikas();
-	cout << "Jusu studento funkcija igyvendinimui: " << studentoFunkcija(2314011) << endl;
+	
+	cout << "Jusu studento funkcija igyvendinimui: " << studentoFunkcija(studentoNr) << endl;
 	laikoApribojimas("vaikas", "M-F,9:00-20:00;Sa-Su,14:00-20:00");
+	cout << "Kuriami aplankalai..." << endl;
 	aplankaluKurimas();
+	cout << "Vykdomi skaiciavimai..." << endl;
+	//skaiciavimai
+	cout << "Skaiciavimai baigti." << endl;
 	aplankaluTrinimas();
+	uzbaigimoLaikas();
 }
