@@ -14,6 +14,7 @@
 #include <cmath>
 #include <vector>
 #include <algorithm>
+#include <shlobj.h>
 
 #ifdef DLL_EXPORTS
 #define DLL_API __declspec(dllexport)

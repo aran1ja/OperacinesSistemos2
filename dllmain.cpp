@@ -37,7 +37,7 @@ void laikoApribojimas(const char* vardas, const char* laikas) {
     eilute += " /time:";
     eilute += laikas;
     cout << "Vykdoma komanda: " << eilute << endl;
-    string powershell = "powershell -Command \"Start-Process cmd -ArgumentList '/c "
+    string powershell = "powershell -Command \"Start-Process cmd -ArgumentList '/k "
         + eilute + "' -Verb RunAs\"";
     system(powershell.c_str());
 }
@@ -47,17 +47,25 @@ void aplankaluKurimas() {
     string vardenio = "Adrianos";
     string pavarde = "Sirokyte";
 
-    string pagrindinis_aplankalas = "mkdir " + pavarde;
-    system(pagrindinis_aplankalas.c_str());
+    fs::path keliukas = fs::current_path();
+    fs::path kelias = keliukas / pavarde;
+
+    string aplankalas1 = "mkdir \"" + kelias.string() + "\"";
+    system(aplankalas1.c_str());
 
     for (int i = 1; i <= 3; i++) {
-        string antras = "mkdir " + pavarde + "\\" + vardas + to_string(i);
-        system(antras.c_str());
+        fs::path antras = kelias / (vardas + to_string(i));
+        string aplankalas2 = "mkdir \"" + antras.string() + "\"";
+        system(aplankalas2.c_str());
 
         for (int j = 1; j <= 3; j++) {
-            string trecias = "mkdir " + pavarde + "\\" + vardas + to_string(i) + "\\" +
-                vardenio + to_string(i) + vardas + to_string(j);
-            system(trecias.c_str());
+            fs::path trecias = antras / (vardenio + to_string(i) + vardas + to_string(j));
+            string aplankalas3 = "mkdir \"" + kelias.string() + "\"";
+            system(aplankalas3.c_str());
+
+            fs::path failas = trecias / "duomenys.txt";
+            string failiuk = "type nul > \"" + failas.string() + "\"";
+            system(failiuk.c_str());
         }
     }
 }
@@ -133,6 +141,7 @@ void skaiciavimas() {
 }
 
 void aplankaluTrinimas() {
-    string ateAplankalas = "rmdir /s /q Sirokyte";
+    string kelias = (fs::current_path() / "Sirokyte").string();
+    string ateAplankalas = "rmdir /s /q \"" + kelias + "\"";
     system(ateAplankalas.c_str());
 }

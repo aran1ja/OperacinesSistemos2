@@ -16,4 +16,5 @@ int main() {
 	cout << "Trinamas aplankalas 'Sirokyte'..." << endl;
 	aplankaluTrinimas();
 	uzbaigimoLaikas();
+	system("pause");
 }
